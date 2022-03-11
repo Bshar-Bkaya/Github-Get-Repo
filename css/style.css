@@ -1,0 +1,97 @@
+* {
+  box-sizing  : border-box;
+  padding     : 0;
+  margin      : 0;
+}
+
+body {
+  font-family  : Arial, Helvetica, sans-serif
+}
+
+.container {
+  width             : 800px;
+  margin            : 20px auto;
+  background-color  : #f6f6f6;
+}
+
+.container .input {
+  padding           : 20px;
+  display           : flex;
+  background-color  : #EEE;
+}
+
+.input input[type='text'] {
+  outline           : none;
+  border            : none;
+  background-color  : rgba(255, 255, 255, 0.781);
+  width             : 100%;
+  padding           : 15px 20px;
+  font-size         : 20px;
+  height            : 54px;
+}
+
+.input input[type='text']:focus {
+  background-color  : #fff;
+  outline           : 2px solid #ff4433;
+}
+
+.input .btn-repo {
+  width             : 140px;
+  line-height       : 54px;
+  margin-left       : 10px;
+  height            : 54px;
+  background-color  : #ff4433;
+  text-align        : center;
+  color             : #FFF;
+  font-weight       : bold;
+  cursor            : pointer;
+  transition        : .3s;
+}
+
+.input .btn-repo:hover {
+  padding        : 3px;
+  border-radius  : 7px;
+}
+
+.container .show-data {
+  padding           : 20px;
+  background-color  : #e0e0e0;
+}
+
+.container .show-data .repo-box {
+  background-color       : rgba(255, 255, 255, 0.8);
+  padding                : 13px;
+  display                : grid;
+  justify-content        : space-between;
+  grid-template-columns  : 400px auto auto;
+  grid-column-gap        : 20px;
+}
+
+.container .show-data .repo-box:not(:last-child) {
+  margin-bottom  : 7px;
+}
+
+.container .show-data .repo-box a,
+.container .show-data .repo-box span {
+  border-radius  : 4px;
+  font-size      : 12px;
+  color          : #fff;
+  padding        : 5px;
+  text-align     : center;
+  min-width      : 100px;
+}
+
+.container .show-data .repo-box a {
+  text-decoration   : none;
+  background-color  : #e91e63;
+  transition        : .3s;
+}
+
+.container .show-data .repo-box a:hover {
+  margin-left  : 5px;
+  font-size    : 13px;
+}
+
+.container .show-data .repo-box span {
+  background-color  : #00bcd4;
+}
