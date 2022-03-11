@@ -30,7 +30,7 @@ async function getAPI() {
     `https://api.github.com/users/${input.value}/repos`
   );
   if (!repos.ok) {
-    showData.innerHTML = "NO NO NO NO !!!";
+    showData.innerHTML = "Username Not Found :(";
   } else {
     const data = await repos.json();
     // Empty the show data

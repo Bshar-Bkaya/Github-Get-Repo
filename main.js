@@ -70,7 +70,7 @@ function getRepo() {
         });
       })
       .catch(() => {
-        showData.innerHTML = "The Usename Not Found :(";
+        showData.innerHTML = "The Username Not Found :(";
       });
   }
 }
