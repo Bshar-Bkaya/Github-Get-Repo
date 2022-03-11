@@ -29,55 +29,59 @@ async function getAPI() {
   const repos = await fetch(
     `https://api.github.com/users/${input.value}/repos`
   );
-  const data = await repos.json();
-  // Empty the show data
-  showData.innerHTML = "";
+  if (!repos.ok) {
+    showData.innerHTML = "NO NO NO NO !!!";
+  } else {
+    const data = await repos.json();
+    // Empty the show data
+    showData.innerHTML = "";
 
-  // Loop On The Repositories
-  data.map((repo) => {
-    // Creat Main Div
-    let mainDiv = document.createElement("div");
+    // Loop On The Repositories
+    data.map((repo) => {
+      // Creat Main Div
+      let mainDiv = document.createElement("div");
 
-    //Creat The Text Node and set repo name to it
-    let text = document.createTextNode(repo.name);
+      //Creat The Text Node and set repo name to it
+      let text = document.createTextNode(repo.name);
 
-    // Append The Text To Main Div
-    mainDiv.appendChild(text);
+      // Append The Text To Main Div
+      mainDiv.appendChild(text);
 
-    //Creat Repo URL
-    let theUrl = document.createElement("a");
+      //Creat Repo URL
+      let theUrl = document.createElement("a");
 
-    //Creat The Text To URL
-    let theUrlText = document.createTextNode("Show This");
+      //Creat The Text To URL
+      let theUrlText = document.createTextNode("Show This");
 
-    //Append The URL Text To Element a
-    theUrl.appendChild(theUrlText);
+      //Append The URL Text To Element a
+      theUrl.appendChild(theUrlText);
 
-    //Set URL To Variable theUrl
-    theUrl.href = `https://github.com/${input.value}/${repo.name}`;
+      //Set URL To Variable theUrl
+      theUrl.href = `https://github.com/${input.value}/${repo.name}`;
 
-    //Set Atterput Blank
-    theUrl.setAttribute("target", "_blank");
+      //Set Atterput Blank
+      theUrl.setAttribute("target", "_blank");
 
-    // Append theURL To Main Div
-    mainDiv.appendChild(theUrl);
+      // Append theURL To Main Div
+      mainDiv.appendChild(theUrl);
 
-    //Creat The Span
-    let spanStars = document.createElement("span");
+      //Creat The Span
+      let spanStars = document.createElement("span");
 
-    //creat The Stars Count Text
-    let contStars = document.createTextNode(`Stars ${repo.stargazers_count}`);
+      //creat The Stars Count Text
+      let contStars = document.createTextNode(`Stars ${repo.stargazers_count}`);
 
-    //Add Stars Count Text To Span
-    spanStars.appendChild(contStars);
+      //Add Stars Count Text To Span
+      spanStars.appendChild(contStars);
 
-    //Append Span Stars To Main Div
-    mainDiv.appendChild(spanStars);
+      //Append Span Stars To Main Div
+      mainDiv.appendChild(spanStars);
 
-    //Add Class "repo-box" To Main Div
-    mainDiv.classList.add("repo-box");
+      //Add Class "repo-box" To Main Div
+      mainDiv.classList.add("repo-box");
 
-    //Append The Main Div To Container
-    showData.append(mainDiv);
-  });
+      //Append The Main Div To Container
+      showData.append(mainDiv);
+    });
+  }
 }

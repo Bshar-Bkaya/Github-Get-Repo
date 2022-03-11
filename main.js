@@ -68,6 +68,9 @@ function getRepo() {
           //Append The Main Div To Container
           showData.append(mainDiv);
         });
+      })
+      .catch(() => {
+        showData.innerHTML = "The Usename Not Found :(";
       });
   }
 }
